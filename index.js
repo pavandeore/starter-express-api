@@ -7,7 +7,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 async function run(LANGUAGE, DATA) {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const prompt = "Give me a "+LANGUAGE+" REST API WRAPPER code ONLY (no explanation) for this provided text \n" + DATA;
+    const prompt = "Give me a "+LANGUAGE+" REST API WRAPPER code ONLY (no explanation) for \n" + DATA.toString();
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
